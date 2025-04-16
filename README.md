@@ -1,3 +1,48 @@
+# Upgradeable Proxy Contract Project
+
+This project demonstrates how to implement upgradeable smart contracts in Solidity. It uses the proxy pattern to upgrade contract logic while preserving state (storage).
+
+## Key Components
+
+- **Proxy.sol**: A proxy contract that delegates all calls to the implementation contract. It uses storage slots following the EIP-1967 standard.
+- **ProxyAdmin.sol**: A contract that provides administrative functions for the proxy, such as upgrading and changing the admin.
+- **StorageSlot.sol**: A utility for using storage slots to prevent storage collisions in the proxy pattern.
+- **CounterV1**: The initial counter implementation, which includes only an increment (inc) function.
+- **CounterV2**: The upgraded counter implementation, which includes both increment (inc) and decrement (dec) functions.
+
+## Tech Stack
+
+- Solidity 0.8.29
+- Hardhat 2.23.0
+- OpenZeppelin Contracts 5.3.0
+- OpenZeppelin Hardhat Upgrades 3.9.0
+- Ethers.js 6.13.5
+
+## Network Configuration
+
+This project can be tested on the following networks:
+
+- **Hardhat Local Network** (chainId: 31337)
+- **EDU Chain Testnet** (chainId: 656476)
+- **EDU Chain Mainnet** (chainId: 41923)
+
+## How to Test
+
+The project includes a test script (ProxyTest.js) that verifies the upgrade functionality. The test proceeds through the following steps:
+
+1. Deploy CounterV1, CounterV2, Proxy, and ProxyAdmin contracts
+2. Set the proxy admin to ProxyAdmin
+3. Upgrade to the CounterV1 implementation and test its functionality
+4. Upgrade to the CounterV2 implementation and test the extended functionality
+
+You can run the tests with the following command:
+
+```shell
+npx hardhat test --network edu
+```
+
+---
+
 # 업그레이드 가능한 프록시 컨트랙트 프로젝트
 
 이 프로젝트는 Solidity에서 업그레이드 가능한 스마트 컨트랙트를 구현하는 방법을 보여줍니다. 프록시 패턴을 사용하여 컨트랙트 로직을 업그레이드하면서도 상태(스토리지)를 유지하는 방법을 구현했습니다.
@@ -23,8 +68,8 @@
 이 프로젝트는 다음 네트워크에서 테스트할 수 있습니다:
 
 - **Hardhat 로컬 네트워크** (chainId: 31337)
-- **Edutest 테스트넷** (chainId: 656476)
-- **Edu 테스트넷** (chainId: 41923)
+- **EDU Chain Testnet** (chainId: 656476)
+- **EDU Chain Mainnet** (chainId: 41923)
 
 ## 테스트 방법
 
@@ -38,7 +83,5 @@
 다음 명령어로 테스트를 실행할 수 있습니다:
 
 ```shell
-npm install
-npx hardhat init
 npx hardhat test --network edu
 ```
