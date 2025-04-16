@@ -35,6 +35,12 @@ The project includes a test script (ProxyTest.js) that verifies the upgrade func
 3. Upgrade to the CounterV1 implementation and test its functionality
 4. Upgrade to the CounterV2 implementation and test the extended functionality
 
+✅ Before running the test, make sure to define your `PRIVATE_KEY` in a `.env` file:
+
+```
+PRIVATE_KEY=your_private_key_here
+```
+
 You can run the tests with the following command:
 
 ```shell
@@ -79,6 +85,12 @@ npx hardhat test --network edu
 2. Proxy의 관리자를 ProxyAdmin으로 설정
 3. CounterV1 구현으로 업그레이드 및 기능 테스트
 4. CounterV2 구현으로 업그레이드 및 확장된 기능 테스트
+
+✅ 테스트를 실행하기 전에 `.env` 파일에 `PRIVATE_KEY`를 정의해야 합니다:
+
+```
+PRIVATE_KEY=여기에_당신의_개인키를_입력하세요
+```
 
 다음 명령어로 테스트를 실행할 수 있습니다:
 
